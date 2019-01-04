@@ -12,7 +12,7 @@ curl "${API}${URL_PATH}/${ID}" \
       "collection": {
         "title": "'"${TITLE}"'",
         "file": "'"${FILE}"'",
-        "user": "'"${ID}"'"
+        "user": "'"${USER}"'"
       }
     }'
 
