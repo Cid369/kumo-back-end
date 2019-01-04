@@ -10,7 +10,7 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Bearer ${TOKEN}" \
   --data '{
     "collection": {
-      "text": "'"${TEXT}"'",
+      "title": "'"${TITLE}"'",
       "file": "'"${FILE}"'",
       "user": "'"${ID}"'"
     }
