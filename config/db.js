@@ -1,7 +1,7 @@
 'use strict'
 
 // creating a base name for the mongodb
-const mongooseBaseName = 'kumo-back-end-client'
+const mongooseBaseName = 'kumo-back-end'
 
 // create the mongodb uri for development and test
 const database = {
