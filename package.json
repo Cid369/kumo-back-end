@@ -1,5 +1,5 @@
 {
-  "name": "kumo-back-end-client",
+  "name": "kumo-back-end",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -32,5 +32,9 @@
     "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
     "standard": "^10.0.3"
+  },
+  "engines": {
+    "node": "8.9.1",
+    "npm": "6.4.1"
   }
 }
