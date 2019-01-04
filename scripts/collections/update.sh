@@ -9,8 +9,9 @@ curl "${API}${URL_PATH}/${ID}" \
   --header "Content-Type: application/json" \
 --header "Authorization: Bearer ${TOKEN}" \
 --data '{
-    "collection": {
-      "text": "'"${TEXT}"'"
+  "collection": {
+    "title": "'"${TITLE}"'",
+    "file": "'"${FILE}"'"
     }
   }'
 
