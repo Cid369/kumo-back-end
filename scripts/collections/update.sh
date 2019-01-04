@@ -7,12 +7,13 @@ curl "${API}${URL_PATH}/${ID}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
---header "Authorization: Bearer ${TOKEN}" \
---data '{
-  "collection": {
-    "title": "'"${TITLE}"'",
-    "file": "'"${FILE}"'"
-    }
-  }'
+  --header "Authorization: Bearer ${TOKEN}" \
+  --data '{
+      "collection": {
+        "text": "'"${TEXT}"'",
+        "title": "'"${TITLE}"'",
+        "user": "'"${ID}"'"
+      }
+    }'
 
 echo
