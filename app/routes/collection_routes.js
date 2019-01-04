@@ -1,5 +1,7 @@
 // Express docs: http://expressjs.com/en/api.html
 const express = require('express')
+// requires npm middleware to handle multipart data/form data
+const multer = require('multer')
 // Passport docs: http://www.passportjs.org/docs/
 const passport = require('passport')
 
@@ -27,6 +29,12 @@ const requireToken = passport.authenticate('bearer', { session: false })
 
 // instantiate a router (mini app that only handles routes)
 const router = express.Router()
+
+// method that takes files and uploads to AWS by createReadStream
+const s3Upload = require('../../lib/s3uploadAPI.js')
+
+// middleware which loads uploaded file to local directory
+const collectionUpload = multer({ dest: 'collections/' })
 
 // INDEX
 // GET /collections
@@ -58,11 +66,20 @@ router.get('/collections/:id', requireToken, (req, res) => {
 
 // CREATE
 // POST /collections
-router.post('/collections', requireToken, (req, res) => {
+router.post('/collections', requireToken, collectionUpload.single('image[file]'), (req, res) => {
   // set owner of new collection to be current user
   req.body.collection.owner = req.user.id
 
-  Collection.create(req.body.collection)
+  console.log('request coming in!')
+  console.log('body', req.body)
+  console.log('file', req.file)
+
+  s3Upload(req)
+    .then((awsResponse) => {
+      console.log(awsResponse)
+      return Collection.create({title: req.body.image.title,
+        url: awsResponse})
+    })
     // respond to succesful `create` with status 201 and JSON of new "collection"
     .then(collection => {
       res.status(201).json({ collection: collection.toObject() })
