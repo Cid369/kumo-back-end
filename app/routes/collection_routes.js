@@ -77,7 +77,9 @@ router.post('/collections', requireToken, collectionUpload.single('image[file]')
   s3Upload(req)
     .then((awsResponse) => {
       console.log(awsResponse)
-      return Collection.create({title: req.body.image.title,
+      return Collection.create({
+        title: req.body.image.title,
+        file: req.body.file,
         url: awsResponse})
     })
     // respond to succesful `create` with status 201 and JSON of new "collection"
