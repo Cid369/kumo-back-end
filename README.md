@@ -42,9 +42,8 @@ date modified, owner, tag) for each file rendered on Kumo.
 | PATCH  | `/change-password`       | `users#changepw`     |
 | GET    | `/collections`           | `collections#index`  |
 | POST   | `/collections`           | `collections#create` |
-| GET    | `/collections/`          | `collections#show`   |
+| GET    | `/collections/:id`       | `collections#show`   |
 | PATCH  | `/collections/:id`       | `collections#update` |
-| GET    | `/collections/:id/watch` | `collections#watch`  |
 | DELETE | `/collections/:id`       | `collections#destroy`|
 
 
