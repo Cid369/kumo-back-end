@@ -5,7 +5,7 @@ const collectionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  file: {
+  url: {
     type: String,
     required: true
   },
@@ -13,6 +13,9 @@ const collectionSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
+  },
+  key: {
+    type: String
   },
   tag: {
     type: String
