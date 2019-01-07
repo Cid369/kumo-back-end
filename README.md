@@ -2,6 +2,8 @@
 Kumo (cloud in Japanese) is a secure cloud services platform that offers database
 storage, content delivery and other functionality to help users maintain files or collections online.
 
+Kumo prompts users to create an account for authentication purposes. Once logged in they can change their password and sign-out. The application works by allowing users to upload file(s) into its database. Once files are uploaded, they can also be updated & deleted; in addition users will be able to see all of the names of their files through integrated features. 
+
 ## Links
 
 * [Front-end repo]()
@@ -25,36 +27,13 @@ storage, content delivery and other functionality to help users maintain files o
 ## Thought Process & Execution
 * For the back-end of the application there were 3 main objectives;
 - 1. Utilizing Kumo, upload file(s) from a local device and send it to Amazon Web Services.
-- 2. Once hosted in AWS, users would be able to download the file(s), update the , and delete the file(s). 
+- 2. Once hosted in AWS, users would be able to download, update and delete the file(s). Furthermore, users should be able to see the names of all their files if needed.
 - 3. View metadata (date created/uploaded,
 date modified, owner, tag) for each file rendered on Kumo.
 
-## User Stories
+## Path Catalogue
 
-* As an unregistered user, I would like to sign up with email and password.
 
-* As a registered user, I would like to sign in with email and password.
-
-* As a signed in user, I would like to change password.
-
-* As a signed in user, I would like to sign out.
-
-* As a signed in user, I would like to upload a file to AWS.
-
-* As a signed in user, I would like to update my file on AWS.
-
-* As a signed in user, I would like to delete my file on AWS.
-
-* As a signed in user, I would like to download files from AWS.
-
-* As a signed in user, I would like to see the name of all files on AWS.
-
-* As a signed in user, I would like to see the following meta-data for any file:
-
-- date created/uploaded
-- date modified
-- owner (user who uploaded the file)
-- tag
 
 ## ERD (entity relationship diagram)
 
