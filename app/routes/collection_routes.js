@@ -68,7 +68,8 @@ router.get('/collections/:id', requireToken, (req, res) => {
 // POST /collections
 router.post('/collections', requireToken, collectionUpload.single('image[file]'), (req, res) => {
   // set owner of new collection to be current user
-  req.body.collection.owner = req.user.id
+  console.log(req.body)
+  // req.body.collection.owner = req.user.id
 
   console.log('request coming in!')
   console.log('body', req.body)
@@ -79,8 +80,8 @@ router.post('/collections', requireToken, collectionUpload.single('image[file]')
       console.log(awsResponse)
       return Collection.create({
         title: req.body.image.title,
-        file: req.body.file,
-        url: awsResponse})
+        file: awsResponse.Location
+      })
     })
     // respond to succesful `create` with status 201 and JSON of new "collection"
     .then(collection => {
