@@ -41,11 +41,22 @@ const collectionUpload = multer({ dest: 'collections/' })
 router.get('/collections', requireToken, (req, res) => {
   Collection.find()
     .then(collections => {
+      const collectionOwner = collections.filter(collection => {
+        if (JSON.stringify(collection.user) === JSON.stringify(req.user._id)) {
+          return true
+        }
+      })
       // `collections` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
-      return collections.map(collection => collection.toObject())
+      return collectionOwner.map(collection => collection.toObject())
     })
+    // .then(collections => {
+    //   // `collections` will be an array of Mongoose documents
+    //   // we want to convert each one to a POJO, so we use `.map` to
+    //   // apply `.toObject` to each one
+    //   return collections.map(collection => collection.toObject())
+    // })
     // respond with status 200 and JSON of the collections
     .then(collections => res.status(200).json({ collections: collections }))
     // if an error occurs, pass it to the handler
@@ -80,8 +91,9 @@ router.post('/collections', requireToken, collectionUpload.single('image[file]')
       console.log(awsResponse)
       return Collection.create({
         title: req.body.image.title,
-        file: awsResponse.Location,
-        user: req.body.image.user
+        url: awsResponse.Location,
+        user: req.body.image.user,
+        key: awsResponse.key
       })
     })
     // respond to succesful `create` with status 201 and JSON of new "collection"
