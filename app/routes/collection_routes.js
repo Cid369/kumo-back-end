@@ -80,7 +80,8 @@ router.post('/collections', requireToken, collectionUpload.single('image[file]')
       console.log(awsResponse)
       return Collection.create({
         title: req.body.image.title,
-        file: awsResponse.Location
+        file: awsResponse.Location,
+        user: req.body.image.user
       })
     })
     // respond to succesful `create` with status 201 and JSON of new "collection"
