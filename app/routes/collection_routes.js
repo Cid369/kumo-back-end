@@ -84,11 +84,12 @@ router.post('/collections', requireToken, collectionUpload.single('image[file]')
 
   s3Upload(req)
     .then((awsResponse) => {
+      console.log(awsResponse)
       return Collection.create({
         title: req.body.image.title,
         url: awsResponse.Location,
         user: req.body.image.user,
-        key: awsResponse.key
+        key: awsResponse.key.split('/')[1]
       })
     })
     // respond to succesful `create` with status 201 and JSON of new "collection"
@@ -106,7 +107,8 @@ router.post('/collections', requireToken, collectionUpload.single('image[file]')
 router.patch('/collections/:id', requireToken, (req, res) => {
   // if the client attempts to change the `owner` property by including a new
   // owner, prevent that by deleting that key/value pair
-  delete req.body.collection.owner
+
+  delete req.body.collection.user
 
   Collection.findById(req.params.id)
     .then(handle404)
