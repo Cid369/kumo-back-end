@@ -55,7 +55,9 @@ date modified, owner, tag) for each file rendered on Kumo.
 
 ## ERD (entity relationship diagram)
 
-![ERD Images](./public/kumoerd.png)
+![ERD Images](https://i.imgur.com/JvuQpBN.png)
+<!-- Link below not working properly it fades as if it were hiding it. -->
+<!-- ![ERD Images](./public/kumoerd.png) -->
 
 ## Unsolved Problems
 
