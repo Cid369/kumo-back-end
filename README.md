@@ -6,10 +6,10 @@ Kumo prompts users to create an account for authentication purposes. Once logged
 
 ## Links
 
-* [Front-end repo]()
-* [Kumo Application Deployed]()
-* [Back-end repo]()
-* [Heroku Server]()
+* [Back-end repo](https://github.com/jooewoo/kumo-back-end) (Current Repo)
+* [Front-end repo](https://github.com/jooewoo/kumo-front-end-client)
+* [Kumo Application Deployed](https://jooewoo.github.io/kumo-front-end-client/)
+* [Heroku Server](https://git.heroku.com/glacial-chamber-28137.git)
 
 ## Technologies Used
 
@@ -27,20 +27,25 @@ Kumo prompts users to create an account for authentication purposes. Once logged
 
 ## Thought Process & Execution
 
-* For the back-end of the application there were 3 main objectives;
+* For the back-end of the application there were 3 main objectives:
 - 1. Utilizing Kumo, upload file(s) from a local device and send it to Amazon Web Services.
 - 2. Once hosted in AWS, users would be able to download, update and delete the file(s). Furthermore, users should be able to see the names of all their files if needed.
 - 3. View metadata (date created/uploaded,
 date modified, owner, tag) for each file rendered on Kumo.
 
-## Path Catalogue
+## Path Catalogues:
 
-| Verb   |    URI Pattern           | Controller#Action    |
+### Users
+| Verb   |    URL Pattern           | Controller#Action    |
 |--------|--------------------------|----------------------|
 | POST   | `/sign-up`               | `users#signup`       |
 | POST   | `/sign-in`               | `users#signin`       |
 | DELETE | `/sign-out`              | `users#signout`      |
 | PATCH  | `/change-password`       | `users#changepw`     |
+
+### Collections
+| Verb   |    URL Pattern           | Controller#Action    |
+|--------|--------------------------|----------------------|
 | GET    | `/collections`           | `collections#index`  |
 | POST   | `/collections`           | `collections#create` |
 | GET    | `/collections/:id`       | `collections#show`   |
@@ -50,9 +55,12 @@ date modified, owner, tag) for each file rendered on Kumo.
 
 ## ERD (entity relationship diagram)
 
-![ERD Image](https://i.imgur.com/JvuQpBN.png)
+![ERD Image](./public/kumoERD.PNG)
 
 ## Unsolved Problems
+
+* Modernize Styling
+* Unable to download all file types/formats.
 
 ## Future Versions
 
