@@ -23,6 +23,7 @@ Kumo prompts users to create an account for authentication purposes. Once logged
 * Express API
 * Amazon Web Services
 * MongoDB
+* Mongoose
 
 ## Thought Process & Execution
 
