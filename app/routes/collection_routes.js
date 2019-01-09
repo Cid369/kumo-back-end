@@ -79,7 +79,7 @@ router.get('/collections/:id', requireToken, (req, res) => {
 // POST /collections
 router.post('/collections', requireToken, collectionUpload.single('image[file]'), (req, res) => {
   // set owner of new collection to be current user
-  console.log('this is req.body', req.body)
+
   req.body.user = req.user.id
 
   s3Upload(req)
