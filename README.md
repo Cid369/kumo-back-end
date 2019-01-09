@@ -9,7 +9,7 @@ Kumo prompts users to create an account for authentication purposes. Once logged
 * [Back-end repo](https://github.com/jooewoo/kumo-back-end) (Current Repo)
 * [Front-end repo](https://github.com/jooewoo/kumo-front-end-client)
 * [Kumo Application Deployed](https://jooewoo.github.io/kumo-front-end-client/)
-* [Heroku Server](https://git.heroku.com/glacial-chamber-28137.git)
+* [Heroku Server](https://glacial-chamber-28137.herokuapp.com)
 
 ## Technologies Used
 
